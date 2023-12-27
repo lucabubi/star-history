@@ -4,7 +4,7 @@
   "description": "A stunning star history chart generator for Github Repositories",
   "main": "chart.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node chart.js"
   },
   "repository": {
     "type": "git",
