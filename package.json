@@ -1,6 +1,7 @@
 {
   "name": "stars-history",
   "version": "1.0.0",
+  "type": "module",
   "description": "A stunning star history chart generator for Github Repositories",
   "main": "chart.js",
   "scripts": {
