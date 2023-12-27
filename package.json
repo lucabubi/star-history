@@ -1,0 +1,22 @@
+{
+  "name": "stars-history",
+  "version": "1.0.0",
+  "description": "A stunning star history chart generator for Github Repositories",
+  "main": "chart.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucabubi/star-history.git"
+  },
+  "keywords": [
+    "star-history"
+  ],
+  "author": "lucabubi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucabubi/star-history/issues"
+  },
+  "homepage": "https://github.com/lucabubi/star-history#readme"
+}

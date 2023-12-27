@@ -1,2 +1,61 @@
-# star-history
-A Stunning star history chart generator for Github Repositories
+
+![Cover](https://i.ibb.co/C5dzx2K/IMG-9867-1.jpg)
+# Github Star History
+
+- [Ready to use](#ready-to-use)
+    - [Examples](#examples)
+- // TODO
+
+## Ready to use
+:warning: This project is self-hosted. Show some :hearts: and put a :star:
+
+```md
+![star-history](https://api.lucabubi.me/chart?username=USERNAME&repository=REPOSITORY&color=COLOR)
+```
+
+Just include this line in your README.md file and change `USERNAME`, `REPOSITORY` and `COLOR`.
+
+#### Color Reference
+
+| Color             | Palette                                                            |
+| ----------------- | ------------------------------------------------------------------ |
+| red | ![#c91900](https://via.placeholder.com/10/c91900?text=+) rgba(201, 25, 0, x) |
+| orange | ![#ff8900](https://via.placeholder.com/10/ff8900?text=+) rgba(255, 137, 0, x) |
+| yellow | ![#ffd700](https://via.placeholder.com/10/ffd700?text=+) rgba(255, 215, 0, x) |
+| green | ![#20d420](https://via.placeholder.com/10/20d420?text=+) rgba(32, 212, 32, x) |
+| blue | ![#1e4eff](https://via.placeholder.com/10/1e4eff?text=+) rgba(30, 78, 255, x) |
+| violet | ![#9600d7](https://via.placeholder.com/10/9600d7?text=+) rgba(150, 0, 215, x) |
+
+#### Examples
+
+```md
+![Red Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)
+```
+![Red Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)
+
+```md
+![Orange Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=orange)
+```
+![Orange Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=orange)
+
+```md
+![Yellow Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=yellow)
+```
+![Yellow Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=yellow)
+
+```md
+![Green Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=green)
+```
+![Green Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=green)
+
+```md
+![Blue Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=blue)
+```
+![Blue Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=blue)
+
+```md
+![Violet/Default Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples)
+```
+![Violet/Default Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples)
+
+## // TODO
