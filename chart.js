@@ -69,13 +69,13 @@ const colorPalette = {
 };
 
 // Redirect HTTP to HTTPS (Made for Heroku Deployment) -- COMMENT THIS IF YOU'RE NOT USING HTTPS
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   if (req.header('x-forwarded-proto') !== 'https') {
     res.redirect(`https://${req.hostname}${req.url}`);
   } else {
     next();
   }
-});
+});*/
 
 // Define the GET call to /chart
 app.get('/chart', async (req, res) => {
@@ -222,7 +222,7 @@ const createChartImage = async (GITHUB_API_URL, color = "violet") => {
         borderColor: colorPalette[color].line,
         backgroundColor: colorPalette[color].area,
         tension: 0.4,
-        borderWidth: 5,
+        borderWidth: 4,
         pointRadius: 0
       }]
     },
@@ -263,7 +263,7 @@ const createChartImage = async (GITHUB_API_URL, color = "violet") => {
               // Determine the step between each label
               let step = Math.floor(values.length / (xLabelsToShow - 1));
 
-              // Always show the first and last label (last label will show a flag icon)
+              // Always show the first and last label (last label will show a zap icon)
               if (index === 0 || index === values.length - 1) {
                 let formattedDate = dayjs(value).format('MMM').charAt(0) + dayjs(value).format('YY');
                 return index === values.length - 1 ? emoji.get("zap") : formattedDate;
