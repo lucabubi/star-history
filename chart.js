@@ -69,13 +69,13 @@ const colorPalette = {
 };
 
 // Redirect HTTP to HTTPS (Made for Heroku Deployment) -- COMMENT THIS IF YOU'RE NOT USING HTTPS
-/*app.use((req, res, next) => {
+app.use((req, res, next) => {
   if (req.header('x-forwarded-proto') !== 'https') {
     res.redirect(`https://${req.hostname}${req.url}`);
   } else {
     next();
   }
-});*/
+});
 
 // Define the GET call to /chart
 app.get('/chart', async (req, res) => {
