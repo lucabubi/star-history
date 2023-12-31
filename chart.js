@@ -273,7 +273,7 @@ const createChartImage = async (GITHUB_API_URL, color = "violet") => {
               }
 
               // For other labels, return null (do not show them) if they're not a multiple of the step size
-              else if (index % step !== 0) {
+              else if (index % step !== 0 || index > values.length - 1 -step/2) {
                 return null;
               }
 
