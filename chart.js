@@ -80,6 +80,9 @@ app.use((req, res, next) => {
 // Define the GET call to /chart
 app.get('/chart', async (req, res) => {
 
+  // Logging
+  console.log("GET " + req.hostname + req.url);
+
   // Get these parameters from the url
   // Format (optional) -> localhost:3000/chart?username=username&repository=repository (&color=color)
   const { username, repository, color } = req.query;
