@@ -272,8 +272,8 @@ const createChartImage = async (GITHUB_API_URL, color = "violet") => {
                 return index === values.length - 1 ? emoji.get("zap") : formattedDate;
               }
 
-              // For other labels, return null (do not show them) if they're not a multiple of the step size or they could overlap with last showed label (zap icon))
-              else if (index % step !== 0 || index >= values.length - 1 - step) {
+              // For other labels, return null (do not show them) if they're not a multiple of the step size
+              else if (index % step !== 0) {
                 return null;
               }
 
