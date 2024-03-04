@@ -10,7 +10,7 @@
 :warning: This project is self-hosted. Show some :hearts: and put a :star:
 
 ```md
-![star-history](https://api.lucabubi.me/chart?username=USERNAME&repository=REPOSITORY&color=COLOR)
+[![Star History](https://api.lucabubi.me/chart?username=USERNAME&repository=REPOSITORY&color=COLOR)](https://github.com/lucabubi/star-history)
 ```
 
 Just include this line in your README.md file and change `USERNAME`, `REPOSITORY` and `COLOR`.
@@ -29,33 +29,33 @@ Just include this line in your README.md file and change `USERNAME`, `REPOSITORY
 #### Examples
 
 ```md
-![Red Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
 ```
-![Red Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
 
 ```md
-![Orange Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=orange)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
 ```
-![Orange Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=orange)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=orange)](https://github.com/lucabubi/star-history)
 
 ```md
-![Yellow Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=yellow)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
 ```
-![Yellow Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=yellow)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=yellow)](https://github.com/lucabubi/star-history)
 
 ```md
-![Green Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=green)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
 ```
-![Green Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=green)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=green)](https://github.com/lucabubi/star-history)
 
 ```md
-![Blue Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=blue)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
 ```
-![Blue Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=blue)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=blue)](https://github.com/lucabubi/star-history)
 
 ```md
-![Violet/Default Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
 ```
-![Violet/Default Chart](https://api.lucabubi.me/chart?username=mdn&repository=js-examples)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples)](https://github.com/lucabubi/star-history)
 
 ## // TODO
