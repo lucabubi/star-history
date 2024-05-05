@@ -34,27 +34,27 @@ Just include this line in your README.md file and change `USERNAME`, `REPOSITORY
 [![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
 
 ```md
-[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=orange)](https://github.com/lucabubi/star-history)
 ```
 [![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=orange)](https://github.com/lucabubi/star-history)
 
 ```md
-[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=yellow)](https://github.com/lucabubi/star-history)
 ```
 [![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=yellow)](https://github.com/lucabubi/star-history)
 
 ```md
-[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=green)](https://github.com/lucabubi/star-history)
 ```
 [![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=green)](https://github.com/lucabubi/star-history)
 
 ```md
-[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=blue)](https://github.com/lucabubi/star-history)
 ```
 [![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=blue)](https://github.com/lucabubi/star-history)
 
 ```md
-[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples&color=red)](https://github.com/lucabubi/star-history)
+[![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples)](https://github.com/lucabubi/star-history)
 ```
 [![Star History](https://api.lucabubi.me/chart?username=mdn&repository=js-examples)](https://github.com/lucabubi/star-history)
 
