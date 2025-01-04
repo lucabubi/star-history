@@ -4,6 +4,7 @@
 // Imports
 import express, { json } from 'express';
 import helmet from "helmet";
+import NodeCache from 'node-cache';
 import { registerFont, createCanvas } from 'canvas';
 import Chart from 'chart.js/auto';
 import axios from 'axios';
@@ -22,10 +23,10 @@ app.use(helmet());
 // URL of the server we're creating
 const API_URL = `http://localhost:${process.env.PORT}`
 
-// Width of canvas in px (not considering padding added after!)
+// Width of canvas in px
 const WIDTH = 495;
 
-// Height of canvas in px (not considering padding added after!)
+// Height of canvas in px
 const HEIGHT = 195;
 
 // Color Palette
@@ -77,6 +78,10 @@ app.use((req, res, next) => {
   }
 });
 
+// Initialize cache (set default TTL to 24 hours = 86400 seconds)
+const cache = new NodeCache({ stdTTL: 86400, checkperiod: 600 }); // Check for expired keys every 10 minutes
+
+
 // Define the GET call to /chart
 app.get('/chart', async (req, res) => {
 
@@ -91,11 +96,30 @@ app.get('/chart', async (req, res) => {
     return res.status(400).send('Username and repository are required');
   }
 
+  // Unique cache key based on query parameters
+  const cacheKey = `${username}-${repository}-${color}`;
   // Github API endpoint
   const GITHUB_API_URL = `https://api.github.com/repos/${username}/${repository}`;
 
+  // Check if the chart is already cached
+  const cachedImage = cache.get(cacheKey);
+  if (cachedImage) {
+    // Cache hit
+    res.header({
+      'Content-Type': 'image/png',
+      'Cache-Control': 'public, max-age=86400'
+    });
+    return res.send(Buffer.from(cachedImage.split(',')[1], 'base64'));
+  }
+
+  // If not cached, generate the chart image (cache miss)
   try {
-    const chartImage = await createChartImage(GITHUB_API_URL, color);
+    const chartImage = await createChartImage(`https://api.github.com/repos/${username}/${repository}`, color);
+
+    // Cache the generated image
+    cache.set(cacheKey, chartImage);
+
+    // Send the response with caching headers
     res.header({
       'Content-Type': 'image/png',
       'Cache-Control': 'public, max-age=86400'
@@ -273,7 +297,7 @@ const createChartImage = async (GITHUB_API_URL, color = "violet") => {
               }
 
               // For other labels, return null (do not show them) if they're not a multiple of the step size
-              else if (index % step !== 0 || index > values.length - 1 -step/2) {
+              else if (index % step !== 0 || index > values.length - 1 - step / 2) {
                 return null;
               }
 
