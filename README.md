@@ -1,19 +1,22 @@
 
 ![Cover](https://i.ibb.co/C5dzx2K/IMG-9867-1.jpg)
-# Github Star History
 
+# Github Star History
 - [Ready to use](#ready-to-use)
     - [Examples](#examples)
 - // TODO
 
 ## Ready to use
-:warning: This project is self-hosted. Show some :hearts: and put a :star:
+
+> \[!NOTE]
+>
+> This project is self-hosted since 2023. Please, show some :hearts: and put a :star:!
+
+Include this line in your README.md file and change `USERNAME`, `REPOSITORY` and `COLOR`:
 
 ```md
 [![Star History](https://api.lucabubi.me/chart?username=USERNAME&repository=REPOSITORY&color=COLOR)](https://github.com/lucabubi/star-history)
 ```
-
-Just include this line in your README.md file and change `USERNAME`, `REPOSITORY` and `COLOR`.
 
 #### Color Reference
 
