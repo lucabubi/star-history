@@ -289,7 +289,7 @@ const createChartImage = async (GITHUB_API_URL, color = "violet") => {
       const { ctx } = chart;
       ctx.save();
       ctx.beginPath();
-      ctx.roundRect(0, 0, 495, 195, 15);
+      ctx.roundRect(0, 0, WIDTH, HEIGHT, 15);
       ctx.fillStyle = 'black';
       ctx.fill();
     }
