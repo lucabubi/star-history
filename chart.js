@@ -70,6 +70,7 @@ const colorPalette = {
 };
 
 // Redirect HTTP to HTTPS (Made for Heroku Deployment) -- COMMENT THIS IF YOU'RE NOT USING HTTPS
+/*
 app.use((req, res, next) => {
   if (req.header('x-forwarded-proto') !== 'https') {
     res.redirect(`https://${req.hostname}${req.url}`);
@@ -77,6 +78,7 @@ app.use((req, res, next) => {
     next();
   }
 });
+*/
 
 // Initialize cache (set default TTL to 24 hours = 86400 seconds)
 const cache = new NodeCache({ stdTTL: 86400, checkperiod: 600 }); // Check for expired keys every 10 minutes
@@ -199,6 +201,13 @@ const createChartImage = async (GITHUB_API_URL, color = "violet") => {
     cumulativeStars.push(dataArray[dataArray.length - 1][1]);
   }
 
+  // Find the index of the last zero to keep
+  const lastZeroIndex = cumulativeStars.lastIndexOf(0);
+
+  // Replace all values before the last zero with null
+  const filteredStars = cumulativeStars.map((value, index) =>
+    index < lastZeroIndex ? null : value
+  );
   // In order to create rounded corner around the canvas and fill it with black
   const colorArea = {
     id: 'colorArea',
@@ -244,7 +253,7 @@ const createChartImage = async (GITHUB_API_URL, color = "violet") => {
     data: {
       labels: labels,
       datasets: [{
-        data: cumulativeStars,
+        data: filteredStars,
         fill: true,
         borderColor: colorPalette[color].line,
         backgroundColor: colorPalette[color].area,
