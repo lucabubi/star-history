@@ -22,12 +22,12 @@ Include this line in your README.md file and change `USERNAME`, `REPOSITORY` and
 
 | Color             | Palette                                                            |
 | ----------------- | ------------------------------------------------------------------ |
-| red | ![#c91900](https://via.placeholder.com/10/c91900?text=+) rgba(201, 25, 0, x) |
-| orange | ![#ff8900](https://via.placeholder.com/10/ff8900?text=+) rgba(255, 137, 0, x) |
-| yellow | ![#ffd700](https://via.placeholder.com/10/ffd700?text=+) rgba(255, 215, 0, x) |
-| green | ![#20d420](https://via.placeholder.com/10/20d420?text=+) rgba(32, 212, 32, x) |
-| blue | ![#1e4eff](https://via.placeholder.com/10/1e4eff?text=+) rgba(30, 78, 255, x) |
-| violet | ![#9600d7](https://via.placeholder.com/10/9600d7?text=+) rgba(150, 0, 215, x) |
+| red | ![#c91900](https://placehold.co/15x15/c91900/c91900.png) rgba(201, 25, 0, x) |
+| orange | ![#ff8900](https://placehold.co/15x15/ff8900/ff8900.png) rgba(255, 137, 0, x) |
+| yellow | ![#ffd700](https://placehold.co/15x15/ffd700/ffd700.png) rgba(255, 215, 0, x) |
+| green | ![#20d420](https://placehold.co/15x15/20d420/20d420.png) rgba(32, 212, 32, x) |
+| blue | ![#1e4eff](https://placehold.co/15x15/1e4eff/1e4eff.png) rgba(30, 78, 255, x) |
+| violet | ![#9600d7](https://placehold.co/15x15/9600d7/9600d7.png) rgba(150, 0, 215, x) |
 
 #### Examples
 
