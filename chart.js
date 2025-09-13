@@ -70,7 +70,6 @@ const colorPalette = {
 };
 
 // Redirect HTTP to HTTPS (Made for Heroku Deployment) -- COMMENT THIS IF YOU'RE NOT USING HTTPS
-/*
 app.use((req, res, next) => {
   if (req.header('x-forwarded-proto') !== 'https') {
     res.redirect(`https://${req.hostname}${req.url}`);
@@ -78,7 +77,7 @@ app.use((req, res, next) => {
     next();
   }
 });
-*/
+
 
 // Initialize cache (set default TTL to 24 hours = 86400 seconds)
 const cache = new NodeCache({ stdTTL: 86400, checkperiod: 600 }); // Check for expired keys every 10 minutes
