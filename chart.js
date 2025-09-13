@@ -82,6 +82,64 @@ app.use((req, res, next) => {
 // Initialize cache (set default TTL to 24 hours = 86400 seconds)
 const cache = new NodeCache({ stdTTL: 86400, checkperiod: 600 }); // Check for expired keys every 10 minutes
 
+// Input validation functions
+const validateUsername = (username) => {
+  if (!username || typeof username !== 'string') {
+    return { valid: false, error: 'Username is required and must be a string' };
+  }
+  
+  // GitHub username constraints: max 39 characters
+  if (username.length > 39) {
+    return { valid: false, error: 'Username cannot exceed 39 characters' };
+  }
+  
+  // GitHub username constraints: alphanumeric, hyphens
+  // Cannot start or end with hyphen, cannot contain consecutive hyphens
+  const usernameRegex = /^[a-zA-Z0-9]([a-zA-Z0-9]|-(?!-))*[a-zA-Z0-9]$|^[a-zA-Z0-9]$/;
+  
+  if (!usernameRegex.test(username)) {
+    return { valid: false, error: 'Invalid username format' };
+  }
+  
+  return { valid: true, sanitized: username };
+};
+
+const validateRepository = (repository) => {
+  if (!repository || typeof repository !== 'string') {
+    return { valid: false, error: 'Repository is required and must be a string' };
+  }
+  
+  // GitHub repository constraints: alphanumeric, hyphens, underscores, dots, max 100 characters
+  // Cannot start with dot or hyphen
+  const repoRegex = /^[a-zA-Z0-9][a-zA-Z0-9._-]{0,99}$/;
+  
+  if (!repoRegex.test(repository)) {
+    return { valid: false, error: 'Invalid repository format' };
+  }
+  
+  return { valid: true, sanitized: repository };
+};
+
+const validateColor = (color) => {
+  // If no color provided, use default
+  if (!color) {
+    return { valid: true, sanitized: 'violet' };
+  }
+  
+  if (typeof color !== 'string') {
+    return { valid: false, error: 'Color must be a string' };
+  }
+  
+  // Whitelist valid colors to prevent prototype pollution
+  const validColors = ['red', 'orange', 'yellow', 'green', 'blue', 'violet'];
+  
+  if (!validColors.includes(color.toLowerCase())) {
+    return { valid: false, error: 'Invalid color. Valid colors are: ' + validColors.join(', ') };
+  }
+  
+  return { valid: true, sanitized: color.toLowerCase() };
+};
+
 
 // Define the GET call to /chart
 app.get('/chart', async (req, res) => {
@@ -93,14 +151,31 @@ app.get('/chart', async (req, res) => {
   // Format (optional) -> localhost:3000/chart?username=username&repository=repository (&color=color)
   const { username, repository, color } = req.query;
 
-  if (!username || !repository) {
-    return res.status(400).send('Username and repository are required');
+  // Validate and sanitize inputs
+  const usernameValidation = validateUsername(username);
+  if (!usernameValidation.valid) {
+    return res.status(400).json({ error: usernameValidation.error });
   }
 
-  // Unique cache key based on query parameters
-  const cacheKey = `${username}-${repository}-${color}`;
-  // Github API endpoint
-  const GITHUB_API_URL = `https://api.github.com/repos/${username}/${repository}`;
+  const repositoryValidation = validateRepository(repository);
+  if (!repositoryValidation.valid) {
+    return res.status(400).json({ error: repositoryValidation.error });
+  }
+
+  const colorValidation = validateColor(color);
+  if (!colorValidation.valid) {
+    return res.status(400).json({ error: colorValidation.error });
+  }
+
+  // Use sanitized values
+  const sanitizedUsername = usernameValidation.sanitized;
+  const sanitizedRepository = repositoryValidation.sanitized;
+  const sanitizedColor = colorValidation.sanitized;
+
+  // Unique cache key based on sanitized query parameters
+  const cacheKey = `${sanitizedUsername}-${sanitizedRepository}-${sanitizedColor}`;
+  // Github API endpoint with sanitized values
+  const GITHUB_API_URL = `https://api.github.com/repos/${sanitizedUsername}/${sanitizedRepository}`;
 
   // Check if the chart is already cached
   const cachedImage = cache.get(cacheKey);
@@ -115,7 +190,7 @@ app.get('/chart', async (req, res) => {
 
   // If not cached, generate the chart image (cache miss)
   try {
-    const chartImage = await createChartImage(`https://api.github.com/repos/${username}/${repository}`, color);
+    const chartImage = await createChartImage(GITHUB_API_URL, sanitizedColor);
 
     // Cache the generated image
     cache.set(cacheKey, chartImage);
@@ -128,7 +203,7 @@ app.get('/chart', async (req, res) => {
     res.send(Buffer.from(chartImage.split(',')[1], 'base64'));
   } catch (error) {
     console.error(error);
-    res.status(500).send('Error creating chart image');
+    res.status(500).json({ error: 'Error creating chart image' });
   }
 });
 
